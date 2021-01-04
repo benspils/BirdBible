@@ -3,7 +3,7 @@
 
 ## Overview
 
-The data science team investigates how to create a model to correctly identify bird species by audio recordings of their respective calls. For MVP analysis, only three bird species are considered in the data set. Four models are produced; these are a simple decision tree, a random forest, a support-vector machine (SVM), and an ensemble of the random forest and SVM. The SVM model performs best with an F1-score of ~48%, but there exists much room for improvement. The key focus for next steps and model betterment is integrity of the training data set, namely the culling of bird call audio samples and elimination of white noise present therein.
+The data science team investigates how to create a model to correctly identify bird species by audio recordings of their respective calls. For MVP analysis, only three bird species are considered in the data set. Three models are produced; these are a simple decision tree, a random forest, and a support-vector machine (SVM) model. Finally, an ensemble model of the random forest and SVM models are produced. The hard-voting ensemble of random forest and SVM models performs the best with an F1-score of ~0.49, but there exists much room for improvement. The key focus for next steps and model betterment is integrity of the training data set.
 
 
 ## Business Problem
@@ -65,15 +65,15 @@ To develop models, train and test sets of the data were produced, using the abov
 
 ### Evaluation
 
-The SVM model performs best with an F1-score of ~0.48. However, this F1-score leaves much room for improvement. As can be seen in the below confusion matrix, the correct class for bird calls was predicted 50.34% of the time, which is not ideal, considering the percent share of the cardinal majority class is close to 50% in the first place.
+The hard-voting ensemble of random forest and SVM models performs best with an F1-score of ~0.49. However, this F1-score leaves much room for improvement. As can be seen in the below confusion matrix, the correct class for bird calls was predicted 50.34% of the time, which is not ideal, considering the percent share of the cardinal majority class is close to 50% in the first place.
 
-The model performed the best when predicting the majority species class, as one might expect, with 70.8% of its "cardinal" classifications being true. However, the model did poorly in predicting the other minority classes, with 37.9% and 19.3% of its "blue jay" and "gold finch" classifications being true, respectively.
+The model performed the best when predicting the majority species class, as one might expect, with 64.5% of its "cardinal" classifications being true. However, the model did poorly in predicting the other minority classes, with 51.6% and 14.0% of its "blue jay" and "gold finch" classifications being true, respectively.
 
-![Confusion Matrix](./img_data/r_cmat.png)
+![Confusion Matrix](./img_data/ensemble_cmat.png)
 
 ## Conclusions
 
-Overall the team finds that the SVM model performs best, with an F1-score of ~0.48. However, this indicative of relatively poor performance, seeing as the percent share of the majority class species is around 0.49, so a blind, majority-class-predicting model could theoretically perform better.
+Overall the team finds that the hard-voting ensemble of random forest and SVM models performs best, with an F1-score of ~0.49. However, this indicative of relatively poor performance, seeing as the percent share of the majority class species is around 0.49, so a blind, majority-class-predicting model could theoretically perform on par.
 
 The reason for poor performance is surmised to be overall integrity of sample recordings, as recognized during EDA. Standard devaitions of rolloffs and spectral centroids differed by around 15% and 10% between species, respectively. As these birds are all similarly sized, these differences should not be as high.
 
