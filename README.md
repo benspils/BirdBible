@@ -79,8 +79,8 @@ The reason for poor performance is surmised to be overall integrity of sample re
 
 To eliminate these differences, the team needs to cull the sampled recordings to a fewer amount of more representative audio files. Ideally, these recordings should limit extra white noise and should contain purely the target bird's call.
 
-```
 ## Navigation
+```
 ├── audio_data
 │   ├── BlueJayCalls
 │   ├── CardinalCalls
